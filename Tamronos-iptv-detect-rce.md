@@ -36,7 +36,7 @@ request
 
 访问http://localhost.com/js/aaa.txt
 
-![testok](https://github.com/yuxianzi/Tamronos-iptv-CVE/blob/main/png/.jpg)
+![testok](https://github.com/yuxianzi/Tamronos-iptv-CVE/blob/main/png/testok.jpg)
 
 
 Test url
