@@ -34,7 +34,7 @@ request
 ```
 ![request_detect](https://github.com/yuxianzi/Tamronos-iptv-CVE/blob/main/png/request_detect.jpg)
 
-访问http://localhost.com/js/aaa.txt
+http://localhost.com/js/aaa.txt
 
 ![testok](https://github.com/yuxianzi/Tamronos-iptv-CVE/blob/main/png/testok.jpg)
 
